@@ -1,8 +1,6 @@
 package com.rcforte.todolistservice;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,10 @@ public class TodoListController {
   @GetMapping
   public List<TodoList> findAll() {
     return repo.findAll();
+  }
+
+  @PostMapping
+  public TodoList save(@RequestBody TodoList todoList) {
+    return repo.save(todoList);
   }
 }

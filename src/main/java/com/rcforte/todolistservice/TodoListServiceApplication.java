@@ -28,9 +28,24 @@ class CLR implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     List<TodoList> todos = Lists.newArrayList(
-        new TodoList(null, "Breakfast todo"),
-        new TodoList(null, "Lunch todo"),
-        new TodoList(null, "Dinner todo")
+        new TodoList(null, "Breakfast todo",
+            Lists.newArrayList(
+                new TodoListItem(null, "Buy bread"),
+                new TodoListItem(null, "Cook eggs")
+            )
+        ),
+        new TodoList(null, "Lunch todo",
+            Lists.newArrayList(
+                new TodoListItem(null, "Buy steak"),
+                new TodoListItem(null, "Cook steak")
+            )
+        ),
+        new TodoList(null, "Dinner todo",
+            Lists.newArrayList(
+                new TodoListItem(null, "Buy fish"),
+                new TodoListItem(null, "Cook fish")
+            )
+        )
     );
     todos.stream().forEach(repo::save);
   }
