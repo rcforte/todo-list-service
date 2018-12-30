@@ -1,11 +1,13 @@
 package com.rcforte.todolistservice;
 
+import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/todo-list/")
+@Log
 public class TodoListController {
 
   private final TodoListRepository repo;
@@ -21,6 +23,7 @@ public class TodoListController {
 
   @PostMapping
   public TodoList save(@RequestBody TodoList todoList) {
+    log.info("save: " + todoList);
     return repo.save(todoList);
   }
 }
