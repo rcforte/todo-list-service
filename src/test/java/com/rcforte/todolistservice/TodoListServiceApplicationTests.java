@@ -12,6 +12,5 @@ public class TodoListServiceApplicationTests {
   @Test
   public void contextLoads() {
   }
-
 }
 
